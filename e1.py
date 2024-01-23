@@ -75,5 +75,5 @@ mitTotal = mitTotal / 22
 
 valors22 = periode(ANY)
 
-print(f'⚪ Any 2022:\n     ⚫ Màxima:{valors22[0]}\n     ⚫ Mìnima:{valors22[1]}\n     ⚫ Mitjana:{round(valors22[2], 1)}\n')
-print(f'⚪ Període 2000 a 2022:\n     ⚫ Màxima:{maxTotal}\n     ⚫ Mìnima:{minTotal}\n     ⚫ Mitjana:{round(mitTotal, 1)}')
+print(f'⚪ Any {ANY}:\n     ⚫ Màxima:{valors22[0]}\n     ⚫ Mìnima:{valors22[1]}\n     ⚫ Mitjana:{round(valors22[2], 1)}\n')
+print(f'⚪ Període {ANYMIN} a {ANYMAX}:\n     ⚫ Màxima:{maxTotal}\n     ⚫ Mìnima:{minTotal}\n     ⚫ Mitjana:{round(mitTotal, 1)}')
