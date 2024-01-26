@@ -9,6 +9,13 @@ Exercici 1: "SeaTemp", Fer un programa de càlcul de temperatures del mar.
 ANY = 2022
 ANYMIN = 2000
 ANYMAX = 2022
+listaMax = []
+listaMin = []
+listaMit = []
+aux = []
+maxTotal = 0
+minTotal = 100
+mitTotal = 0
 
 temperatures = {
     2000: (12.7, 12.4, 12.6, 12.4, 13.0, 13.6, 13.3, 13.6, 13.5, 15.9, 15.3, 14.9),
@@ -35,10 +42,7 @@ temperatures = {
     2021: (13.3, 12.9, 13.5, 13.5, 13.7, 13.8, 13.8, 13.8, 14.2, 14.6, 16.8, 14.7),
     2022: (13.6, 13.4, 13.2, 13.4, 13.9, 13.7, 13.7, 13.8, 14.0, 14.3, 16.0, 15.1)
 }
-listaMax = []
-listaMin = []
-listaMit = []
-aux = []
+
 def periode (any):
     maxima = 0
     minima = 100
@@ -59,10 +63,6 @@ for j in range(ANYMIN, ANYMAX+1):
     listaMin.append(aux[1])
     listaMit.append(aux[2])
 
-maxTotal = 0
-minTotal = 100
-mitTotal = 0
-
 for k in listaMax:
     if k > maxTotal:
         maxTotal = k
@@ -75,5 +75,5 @@ mitTotal = mitTotal / 22
 
 valors22 = periode(ANY)
 
-print(f'⚪ Any {ANY}:\n     ⚫ Màxima:{valors22[0]}\n     ⚫ Mìnima:{valors22[1]}\n     ⚫ Mitjana:{round(valors22[2], 1)}\n')
-print(f'⚪ Període {ANYMIN} a {ANYMAX}:\n     ⚫ Màxima:{maxTotal}\n     ⚫ Mìnima:{minTotal}\n     ⚫ Mitjana:{round(mitTotal, 1)}')
+print(f'⚪ Any {ANY}:\n     ⚫ Màxima:{valors22[0]:.2f}\n     ⚫ Mìnima:{valors22[1]:.2f}\n     ⚫ Mitjana:{round(valors22[2], 1):.2f}\n'
+      f'⚪ Període {ANYMIN} a {ANYMAX}:\n     ⚫ Màxima:{maxTotal:.2f}\n     ⚫ Mìnima:{minTotal:.2f}\n     ⚫ Mitjana:{round(mitTotal, 1):.2f}')
