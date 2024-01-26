@@ -5,23 +5,26 @@ ASIXc1 MO3-UF1 Pr5
 Exercici 3:  Programa de traducció d’insults. Crear una estructura de dues dimensions amb els insults en
 català i afegir la traducció en castellà, anglès i klingon
 """
-from translate import Translator
-import langdetect
-
 listainsults = {
-    "CAT": ("MOCOS", "CAPSIGRANY", "CALAMAR", "CARAMULL", "CAPOLL", "CAGAMANDURRIES", "CARRINCLÓ", "CABRA", "CARAGIRAT", "COLLONS", "CASCALL", "CAGALERA", "CACAFUTI"),
-    "ESP": ("Mocoso", "Cabezon", "Calamar", "Caramull", "Capullo", "Cagamandurrias", "Carrinchón", "Cabra", "Caragirado", "Collons", "Cascarrabias", "Cagalera", "Cacafuti"),
-    "ENG": ("Snuffly", "Big", "Squid", "Blockhead", "Jerk", "Dunderhead", "Nincompoop", "Goat", "Blockhead", "Balls", "Fool", "Loon", "Noodle"),
-    "KLI": ("Bach", "p", "Q'Pla", "QI'yaH", "nIQ", "Hurgh", "Qapla'", "Saj", "QI'yaH", "bIQ", "tIQ", "lo'", "ghIl")
+    "CAT": ("MOCOS", "CAPSIGRANY", "CALAMAR", "ECTOPLASMA", "CAPOLL", "CAGAMANDURRIES", "BABAU", "CABRA", "CARAGIRAT", "CAP D'ESCROT", "CASCALL", ""),
+    "ESP": ("MOCOSO", "ALCAUDON", "CALAMAR", "ECTOPLASMA", "CAPULLO", "CAGAMANDURRIAS", "BOB", "CABRA", "CARAGIRADO", "CABEZA DE ESCROTO", "CASCARRABIAS", "JAVIER EL MEJOR"),
+    "ENG": ("SNUFFLY", "SHRIKE", "SQUID", "ECTOPLASM", "COCOON", "DUNDERHEAD", "NINCOMPOOP", "GOAT", "FACE-TURNED", "SCROTUM HEAD", "CURMUDGEON", "JAVIER THE BEST"),
+    "KLI": ("Bach", "mup", "Qlp", "Qlb", "ghoS", "Hlq", "Hut'", "runpl'", "tlheD", "paw'", "teq", "Hlvje\"e'nlHwl")
 }
+idiomes = ["CAT", "ESP", "ENG", "KLI"]
 palabra = input()
-if palabra.upper() in listainsults["CAT"]:
-    aux = listainsults["CAT"].index(palabra.upper())
-    print(listainsults["ESP"][aux])
-    print(listainsults["ENG"][aux])
-    print(listainsults["KLI"][aux])
+for i in idiomes:
+    if palabra.upper() in listainsults[i] and i != "KLI":
+        posicion = idiomes.index(i)
+        aux = listainsults[idiomes[posicion]].index(palabra.upper())
+        idiomes.pop(idiomes.index(idiomes[posicion]))
+    elif palabra in listainsults["KLI"] and i == "KLI":
+        posicion = idiomes.index(i)
+        aux = listainsults[idiomes[posicion]].index(palabra)
+        idiomes.pop(idiomes.index(idiomes[posicion]))
+if len(idiomes) == 4:
+    for x in idiomes:
+        print(listainsults[x][11])
 else:
-    aux2 = langdetect.detect_langs(palabra)[0].split(":")
-    traduccion = Translator(to_lang="es", from_lang=aux2[0])
-    otrabyna = traduccion.translate(palabra)
-    print(otrabyna)
+    for x in idiomes:
+        print(listainsults[x][aux])
